@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Monitoring System</title>
+</head>
+<body>
+    <h1>Air Quality Monitoring System</h1>
+    
+    <form>
+        <label for="pm25">PM2.5 (µg/m³):</label>
+        <input type="number" id="pm25" name="pm25" min="0" step="1" required><br><br>
+        
+        <label for="temperature">Temperature (°C):</label>
+        <input type="number" id="temperature" name="temperature" step="0.01" required><br><br>
+        
+        <label for="humidity">Humidity (%):</label>
+        <input type="number" id="humidity" name="humidity" min="0" max="100" step="1" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Current Air Quality Data</h2>
+    <p>PM2.5: <span id="currentPM25">-</span> µg/m³</p>
+    <p>Temperature: <span id="currentTemp">-</span> °C</p>
+    <p>Humidity: <span id="currentHumidity">-</span> %</p>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var pm25 = document.getElementById('pm25').value;
+            var temperature = document.getElementById('temperature').value;
+            var humidity = document.getElementById('humidity').value;
+            
+            document.getElementById('currentPM25').textContent = pm25 + "  ";
+            document.getElementById('currentTemp').textContent = temperature + "  ";
+            document.getElementById('currentHumidity').textContent = humidity + "  ";
+        });
+    </script>
+</body>
+</html>
+ 
